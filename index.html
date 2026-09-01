@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Shonge Achi - Unified Payment Gateway</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-container": "#004376",
+                        "primary-fixed": "#8df2fc",
+                        "surface-bright": "#fdfae9",
+                        "surface": "#fdfae9",
+                        "secondary-container": "#6eb2fe",
+                        "inverse-primary": "#6fd6df",
+                        "surface-container-high": "#ebe9d8",
+                        "on-tertiary-fixed": "#1a1d00",
+                        "primary-fixed-dim": "#6fd6df",
+                        "secondary-fixed": "#d2e4ff",
+                        "surface-container-low": "#f7f4e3",
+                        "on-secondary-fixed": "#001c37",
+                        "surface-container": "#f1eede",
+                        "primary-container": "#00818a",
+                        "on-surface": "#1c1c12",
+                        "on-primary-fixed": "#002022",
+                        "on-surface-variant": "#3d494a",
+                        "secondary": "#0061a6",
+                        "on-tertiary-container": "#feffdb",
+                        "on-primary-fixed-variant": "#004f54",
+                        "inverse-on-surface": "#f4f1e0",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e6e3d2",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#596100",
+                        "on-background": "#1c1c12",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#f5feff",
+                        "error": "#ba1a1a",
+                        "primary": "#00666d",
+                        "brand-teal": "#2a7a5a",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00497e",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dddaca",
+                        "background": "#fdfae9",
+                        "surface-tint": "#006970",
+                        "inverse-surface": "#313126",
+                        "surface-variant": "#e6e3d2",
+                        "secondary-fixed-dim": "#a0caff",
+                        "tertiary-fixed": "#dfec60",
+                        "tertiary-fixed-dim": "#c2cf47",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary-fixed-variant": "#444b00",
+                        "outline": "#6d797a",
+                        "tertiary-container": "#717b00",
+                        "bkash-pink": "#E2136E",
+                        "nagad-red": "#ed1c24"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "1rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-padding": "32px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "card-padding": "24px",
+                        "unit": "8px"
+                    },
+                    fontFamily: {
+                        "title-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-sm": ["Manrope"]
+                    },
+                    fontSize: {
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-bold": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fdfae9;
+            color: #1c1c12;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .payment-radio:checked + div {
+            border-color: #00818a;
+            background-color: #f5feff;
+        }
+        .payment-radio:checked + div .radio-indicator {
+            border-color: #00818a;
+        }
+        .payment-radio:checked + div .radio-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #00818a;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-surface">
+    <!-- ElderNavbar (Top Navigation) -->
+    <nav class="w-full flex items-center justify-between px-10 py-4 bg-white border-b border-gray-100 shadow-sm z-50">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="public/public/assets/Shonge Achi logo.png" alt="Shonge Achi Logo" class="w-10 h-10 object-contain"/>
+            <span class="text-xl font-semibold text-brand-teal">Shonge Achi</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#" class="text-sm font-medium text-gray-600 hover:text-brand-teal transition">Profile</a>
+            <a href="#" class="text-sm font-medium text-gray-600 hover:text-brand-teal transition">Visit History</a>
+            <a href="#" class="text-sm font-medium text-gray-600 hover:text-brand-teal transition">Wellbeing History</a>
+            <a href="#" class="text-sm font-medium text-brand-teal border-b-2 border-brand-teal pb-1 transition">Subscriptions</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <button class="p-2 rounded-full hover:bg-gray-50 transition" title="Notifications">
+                <span class="material-symbols-outlined text-gray-600" data-icon="notifications">notifications</span>
+            </button>
+            <button class="px-5 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-600 hover:bg-gray-50 transition">
+                Log out
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center py-12 px-container-padding">
+        <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            
+            <!-- Payment Summary (Left Column) -->
+            <div class="md:col-span-4 flex flex-col gap-unit">
+                <div class="bg-surface-container-lowest rounded-xl p-card-padding flex flex-col gap-6 h-full shadow-[0_8px_24px_rgba(0,0,0,0.04)] border border-surface-container-highest">
+                    <div>
+                        <h2 class="font-title-md text-title-md text-on-surface mb-2">Payment Summary</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Review your transaction details before proceeding.</p>
+                    </div>
+                    <div class="flex-grow flex flex-col gap-4">
+                        <div class="bg-surface-container rounded-lg p-4 flex flex-col gap-1">
+                            <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Plan</span>
+                            <span class="font-title-md text-title-md text-on-surface">Monthly Subscription</span>
+                        </div>
+                        <div class="bg-surface-container rounded-lg p-4 flex flex-col gap-1">
+                            <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">User</span>
+                            <span class="font-body-lg text-body-lg text-on-surface flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+                                M. Rahman
+                            </span>
+                        </div>
+                        <div class="bg-surface-container rounded-lg p-4 flex flex-col gap-1">
+                            <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Invoice</span>
+                            <span class="font-body-md text-body-md text-on-surface">#INV-2024-001</span>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-surface-container-highest">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+                            <span class="font-body-md text-body-md text-on-surface">৳ 1,500</span>
+                        </div>
+                        <div class="flex justify-between items-end mb-4">
+                            <span class="font-body-md text-body-md text-on-surface-variant">Processing Fee</span>
+                            <span class="font-body-md text-body-md text-on-surface">৳ 0</span>
+                        </div>
+                        <div class="flex justify-between items-end pt-4 border-t border-surface-container">
+                            <span class="font-body-lg text-body-lg text-on-surface-variant">Total Amount</span>
+                            <span class="font-headline-lg text-headline-lg text-primary">৳ 1,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods (Right Column) -->
+            <div class="md:col-span-8 flex flex-col gap-unit">
+                <div class="bg-surface-container-lowest rounded-xl p-card-padding flex flex-col gap-6 shadow-[0_8px_24px_rgba(0,0,0,0.04)] border border-surface-container-highest">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="security">security</span>
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface">Select Payment Method</h2>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-2">Choose your preferred secure payment option. You will be redirected to a dedicated sandbox environment.</p>
+                    
+                    <form class="flex flex-col gap-4" id="main-payment-form">
+                        <!-- bKash -->
+                        <label class="relative cursor-pointer group">
+                            <input checked class="payment-radio peer sr-only" name="payment_method" type="radio" value="bkash"/>
+                            <div class="w-full border-2 border-surface-container-highest rounded-xl p-4 flex items-center gap-4 transition-all duration-200 hover:border-primary-container bg-surface-container-lowest">
+                                <div class="radio-indicator relative w-6 h-6 rounded-full border-2 border-outline-variant flex-shrink-0 transition-colors"></div>
+                                <div class="w-16 h-12 flex items-center justify-center">
+                                    <img src="public/public/assets/bkash Logo.png" alt="bKash Logo" class="max-h-full max-w-full object-contain"/>
+                                </div>
+                                <span class="font-title-md text-title-md text-on-surface flex-grow">bKash Wallet</span>
+                                <span class="font-label-sm text-label-sm text-bkash-pink font-bold bg-pink-50 px-3 py-1 rounded-full">Popular</span>
+                            </div>
+                        </label>
+
+                        <!-- Nagad -->
+                        <label class="relative cursor-pointer group">
+                            <input class="payment-radio peer sr-only" name="payment_method" type="radio" value="nagad"/>
+                            <div class="w-full border-2 border-surface-container-highest rounded-xl p-4 flex items-center gap-4 transition-all duration-200 hover:border-primary-container bg-surface-container-lowest">
+                                <div class="radio-indicator relative w-6 h-6 rounded-full border-2 border-outline-variant flex-shrink-0 transition-colors"></div>
+                                <div class="w-16 h-12 flex items-center justify-center">
+                                    <img src="public/public/assets/nagad Logo.png" alt="Nagad Logo" class="max-h-full max-w-full object-contain"/>
+                                </div>
+                                <span class="font-title-md text-title-md text-on-surface flex-grow">Nagad Account</span>
+                            </div>
+                        </label>
+
+                        <!-- Card (NO LOGOS - generic card option) -->
+                        <label class="relative cursor-pointer group">
+                            <input class="payment-radio peer sr-only" name="payment_method" type="radio" value="card"/>
+                            <div class="w-full border-2 border-surface-container-highest rounded-xl p-4 flex items-center gap-4 transition-all duration-200 hover:border-primary-container bg-surface-container-lowest">
+                                <div class="radio-indicator relative w-6 h-6 rounded-full border-2 border-outline-variant flex-shrink-0 transition-colors"></div>
+                                <div class="w-16 h-12 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-5xl text-outline" data-icon="credit_card">credit_card</span>
+                                </div>
+                                <span class="font-title-md text-title-md text-on-surface flex-grow">Card Payment</span>
+                            </div>
+                        </label>
+
+                        <!-- Actions -->
+                        <div class="mt-4 pt-6 border-t border-surface-container-highest flex flex-col sm:flex-row justify-end gap-3">
+                            <button class="px-8 h-12 rounded-full border border-outline-variant font-label-bold text-label-bold text-outline hover:bg-surface-container transition-colors duration-200" type="button">
+                                Cancel
+                            </button>
+                            <button id="pay-button" class="bg-[#008b94] hover:bg-primary text-on-primary font-title-md text-title-md h-12 px-8 rounded-full transition-all duration-200 shadow-[0_4px_12px_rgba(0,139,148,0.2)] hover:shadow-[0_6px_16px_rgba(0,139,148,0.3)] hover:-translate-y-0.5 flex items-center justify-center gap-2" type="submit">
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                                Proceed to Pay ৳ 1,500
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Trust Badges -->
+                    <div class="flex flex-wrap justify-center gap-4 mt-4 opacity-60">
+                        <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]" data-icon="verified_user">verified_user</span>
+                            256-bit SSL Secure
+                        </span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]" data-icon="autorenew">autorenew</span>
+                            Instant Activation
+                        </span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]" data-icon="support_agent">support_agent</span>
+                            24/7 Support
+                        </span>
+                    </div>
+
+                    <!-- Sandbox Warning -->
+                    <div class="bg-error-container text-on-error-container p-3 rounded-lg text-center font-label-sm text-label-sm flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+                        Sandbox Environment - No real funds will be deducted.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container w-full mt-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-container-padding py-gutter max-w-[1440px] mx-auto gap-4">
+            <div class="flex items-center gap-2">
+                <img src="public/public/assets/Shonge Achi logo.png" alt="Shonge Achi Logo" class="w-8 h-8 object-contain"/>
+                <span class="font-title-md text-title-md text-primary">Shonge Achi</span>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">
+                © 2024 Shonge Achi. Dedicated to Elder Care with Love and Reliability.
+            </p>
+            <div class="flex gap-6">
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Terms of Service</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Support</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('main-payment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedMethod = document.querySelector('input[name="payment_method"]:checked').value;
+            const pages = {
+                'bkash': 'payment-bkash.html',
+                'nagad': 'payment-nagad.html',
+                'card': 'payment-card.html'
+            };
+            if (pages[selectedMethod]) {
+                window.location.href = pages[selectedMethod];
+            }
+        });
+    </script>
+</body>
+</html>

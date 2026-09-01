@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Card Payment Sandbox - Shonge Achi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#6fd6df",
+                        "secondary-fixed": "#d2e4ff",
+                        "tertiary": "#596100",
+                        "tertiary-container": "#717b00",
+                        "primary-fixed-dim": "#6fd6df",
+                        "on-surface": "#1c1c12",
+                        "surface-container": "#f1eede",
+                        "background": "#fdfae9",
+                        "inverse-surface": "#313126",
+                        "surface-container-highest": "#e6e3d2",
+                        "surface-tint": "#006970",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdfae9",
+                        "on-tertiary-container": "#feffdb",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#f5feff",
+                        "tertiary-fixed-dim": "#c2cf47",
+                        "tertiary-fixed": "#dfec60",
+                        "on-primary-fixed": "#002022",
+                        "outline-variant": "#bdc9ca",
+                        "surface-variant": "#e6e3d2",
+                        "on-background": "#1c1c12",
+                        "on-surface-variant": "#3d494a",
+                        "on-primary-fixed-variant": "#004f54",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f7f4e3",
+                        "on-secondary-fixed-variant": "#00497e",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#a0caff",
+                        "surface-container-high": "#ebe9d8",
+                        "secondary": "#0061a6",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dddaca",
+                        "primary-container": "#00818a",
+                        "surface": "#fdfae9",
+                        "inverse-on-surface": "#f4f1e0",
+                        "on-tertiary-fixed-variant": "#444b00",
+                        "on-tertiary-fixed": "#1a1d00",
+                        "on-secondary-container": "#004376",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#8df2fc",
+                        "outline": "#6d797a",
+                        "secondary-container": "#6eb2fe",
+                        "primary": "#00666d",
+                        "brand-teal": "#2a7a5a",
+                        "on-secondary-fixed": "#001c37"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-padding": "32px",
+                        "margin-mobile": "16px",
+                        "card-padding": "24px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "title-md": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "label-bold": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+                        "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FEFBEA;
+        }
+        .glass-card {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #EAE6D1;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.04);
+        }
+        .secure-input {
+            background-color: #FFFFFF;
+            border: 1px solid #EAE6D1;
+            border-radius: 8px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .secure-input:focus {
+            outline: none;
+            border-color: #008B94;
+            border-width: 2px;
+            box-shadow: 0 0 0 1px rgba(0, 139, 148, 0.2);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col">
+    <!-- ElderNavbar (Top Navigation) -->
+    <nav class="w-full flex items-center justify-between px-10 py-4 bg-white border-b border-gray-100 shadow-sm z-50">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="public/assets/Shonge Achi logo.png" alt="Shonge Achi Logo" class="w-10 h-10 object-contain"/>
+            <span class="text-xl font-semibold text-brand-teal">Shonge Achi</span>
+        </a>
+
+        <div class="flex items-center gap-3">
+            <button onclick="window.location.href='index.html'" class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-brand-teal transition">
+                <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                Back to Payment
+            </button>
+        </div>
+    </nav>
+
+    <!-- Payment Container -->
+    <main class="flex-grow w-full flex items-center justify-center p-margin-mobile md:p-container-padding">
+        <div class="w-full max-w-lg mx-auto">
+            <!-- Header / Trust Indicators -->
+            <header class="text-center mb-8">
+                <h1 class="font-headline-lg text-headline-lg text-primary mb-2 hidden md:block">Secure Checkout</h1>
+                <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 md:hidden">Secure Checkout</h1>
+                <p class="font-body-md text-body-md text-on-surface-variant flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+                    Shonge Achi Secure Sandbox Environment
+                </p>
+            </header>
+            <!-- Payment Card -->
+            <div class="glass-card relative overflow-hidden">
+                <!-- Order Summary Header inside card -->
+                <div class="flex justify-between items-center mb-6 pb-4 border-b border-surface-variant">
+                    <div>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Amount</p>
+                        <p class="font-title-md text-title-md text-on-surface">৳ 1,500.00</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <img src="public/assets/visa logo.png" alt="Visa" class="h-8 object-contain"/>
+                        <img src="public/assets/mastercard logo.png" alt="Mastercard" class="h-8 object-contain"/>
+                    </div>
+                </div>
+                <form class="space-y-6" id="card-form">
+                    <!-- Card Number -->
+                    <div class="space-y-1">
+                        <label class="block font-label-bold text-label-bold text-on-surface" for="cardNumber">Card Number</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+                                <span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+                            </span>
+                            <input class="secure-input block w-full pl-10 pr-3 py-3 font-body-md text-body-md text-on-surface placeholder-outline-variant" id="cardNumber" maxlength="19" name="cardNumber" placeholder="0000 0000 0000 0000" required type="text"/>
+                            <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-primary">
+                                <span class="material-symbols-outlined text-outline-variant" data-icon="verified_user">verified_user</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Split Row: Expiry and CVV -->
+                    <div class="grid grid-cols-2 gap-gutter">
+                        <!-- Expiry Date -->
+                        <div class="space-y-1">
+                            <label class="block font-label-bold text-label-bold text-on-surface" for="expiryDate">Expiry Date</label>
+                            <input class="secure-input block w-full px-3 py-3 font-body-md text-body-md text-on-surface placeholder-outline-variant text-center" id="expiryDate" maxlength="5" name="expiryDate" placeholder="MM/YY" required type="text"/>
+                        </div>
+                        <!-- CVV -->
+                        <div class="space-y-1">
+                            <label class="block font-label-bold text-label-bold text-on-surface flex items-center justify-between" for="cvv">
+                                CVV
+                                <span class="material-symbols-outlined text-[16px] text-on-surface-variant cursor-help" data-icon="info" title="3 digit code on back of card">info</span>
+                            </label>
+                            <input class="secure-input block w-full px-3 py-3 font-body-md text-body-md text-on-surface placeholder-outline-variant text-center tracking-widest" id="cvv" maxlength="4" name="cvv" placeholder="•••" required type="password"/>
+                        </div>
+                    </div>
+                    <!-- Name on Card -->
+                    <div class="space-y-1">
+                        <label class="block font-label-bold text-label-bold text-on-surface" for="cardName">Name on Card</label>
+                        <input class="secure-input block w-full px-3 py-3 font-body-md text-body-md text-on-surface placeholder-outline-variant uppercase" id="cardName" name="cardName" placeholder="Cardholder Name" required type="text"/>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                        <button onclick="window.location.href='index.html'" class="flex-1 sm:flex-none px-8 h-12 rounded-full border border-outline-variant font-label-bold text-label-bold text-outline hover:bg-surface-container transition-colors duration-200" type="button">
+                            Cancel
+                        </button>
+                        <button id="card-submit" class="flex-1 bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md py-4 rounded-full transition-colors duration-200 flex items-center justify-center gap-2 h-12 shadow-sm active:scale-[0.98]" type="submit">
+                            <span class="material-symbols-outlined" data-icon="lock">lock</span>
+                            Pay ৳ 1,500.00
+                        </button>
+                    </div>
+                </form>
+                <!-- Decorative background elements inside card for modern feel -->
+                <div class="absolute -top-16 -right-16 w-32 h-32 bg-primary-fixed-dim rounded-full mix-blend-multiply filter blur-3xl opacity-20 pointer-events-none"></div>
+                <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-secondary-container rounded-full mix-blend-multiply filter blur-3xl opacity-20 pointer-events-none"></div>
+            </div>
+            <!-- Footer / Test Mode Warning -->
+            <footer class="mt-8 text-center">
+                <p class="font-label-sm text-label-sm text-on-surface-variant">
+                    This is a sandbox environment. <strong class="text-error">Do not use real card details.</strong>
+                </p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardInput = document.getElementById('cardNumber');
+            const expiryInput = document.getElementById('expiryDate');
+
+            cardInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 16) value = value.slice(0,16);
+                let formattedValue = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formattedValue += ' ';
+                    }
+                    formattedValue += value[i];
+                }
+                e.target.value = formattedValue;
+            });
+
+            expiryInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 4) value = value.slice(0,4);
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+            });
+
+            document.getElementById('card-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const cardNum = document.getElementById('cardNumber').value.replace(/\s/g, '');
+                const expiry = document.getElementById('expiryDate').value;
+                const cvv = document.getElementById('cvv').value;
+                const cardName = document.getElementById('cardName').value.trim();
+
+                if (!cardNum || cardNum.length < 13) { alert('Please enter a valid card number.'); return; }
+                if (!expiry || expiry.length !== 5) { alert('Please enter a valid expiry date (MM/YY).'); return; }
+                if (!cvv || cvv.length < 3) { alert('Please enter a valid CVV.'); return; }
+                if (!cardName) { alert('Please enter the cardholder name.'); return; }
+
+                const btn = document.getElementById('card-submit');
+                const originalText = btn.innerHTML;
+
+                btn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Processing...';
+                btn.classList.add('opacity-80', 'cursor-not-allowed');
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    btn.innerHTML = '<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Payment Successful';
+                    btn.classList.remove('bg-primary', 'hover:bg-primary-container');
+                    btn.classList.add('bg-tertiary', 'text-on-tertiary');
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.classList.remove('bg-tertiary', 'text-on-tertiary', 'opacity-80', 'cursor-not-allowed');
+                        btn.classList.add('bg-primary', 'hover:bg-primary-container');
+                        btn.disabled = false;
+                        document.getElementById('card-form').reset();
+                    }, 2500);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

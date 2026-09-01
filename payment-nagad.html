@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nagad Payment Sandbox - Shonge Achi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#6fd6df",
+                        "secondary-fixed": "#d2e4ff",
+                        "tertiary": "#596100",
+                        "tertiary-container": "#717b00",
+                        "primary-fixed-dim": "#6fd6df",
+                        "on-surface": "#1c1c12",
+                        "surface-container": "#f1eede",
+                        "background": "#fdfae9",
+                        "inverse-surface": "#313126",
+                        "surface-container-highest": "#e6e3d2",
+                        "surface-tint": "#006970",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdfae9",
+                        "on-tertiary-container": "#feffdb",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#f5feff",
+                        "tertiary-fixed-dim": "#c2cf47",
+                        "tertiary-fixed": "#dfec60",
+                        "on-primary-fixed": "#002022",
+                        "outline-variant": "#bdc9ca",
+                        "surface-variant": "#e6e3d2",
+                        "on-background": "#1c1c12",
+                        "on-surface-variant": "#3d494a",
+                        "on-primary-fixed-variant": "#004f54",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f7f4e3",
+                        "on-secondary-fixed-variant": "#00497e",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#a0caff",
+                        "surface-container-high": "#ebe9d8",
+                        "secondary": "#0061a6",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dddaca",
+                        "primary-container": "#00818a",
+                        "surface": "#fdfae9",
+                        "inverse-on-surface": "#f4f1e0",
+                        "on-tertiary-fixed-variant": "#444b00",
+                        "on-tertiary-fixed": "#1a1d00",
+                        "on-secondary-container": "#004376",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#8df2fc",
+                        "outline": "#6d797a",
+                        "secondary-container": "#6eb2fe",
+                        "primary": "#00666d",
+                        "brand-teal": "#2a7a5a",
+                        "on-secondary-fixed": "#001c37"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-padding": "32px",
+                        "margin-mobile": "16px",
+                        "card-padding": "24px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "title-md": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "label-bold": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+                        "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nagad-gradient {
+            background: linear-gradient(135deg, #f7f4e3 0%, #f1eede 100%);
+        }
+        .nagad-text {
+            color: #ed1c24;
+        }
+        .nagad-bg {
+            background-color: #ed1c24;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md text-on-surface">
+    <!-- ElderNavbar (Top Navigation) -->
+    <nav class="w-full flex items-center justify-between px-10 py-4 bg-white border-b border-gray-100 shadow-sm z-50">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="public/assets/Shonge Achi logo.png" alt="Shonge Achi Logo" class="w-10 h-10 object-contain"/>
+            <span class="text-xl font-semibold text-brand-teal">Shonge Achi</span>
+        </a>
+
+        <div class="flex items-center gap-3">
+            <button onclick="window.location.href='index.html'" class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-brand-teal transition">
+                <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                Back to Payment
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-4 md:p-container-padding">
+        <div class="w-full max-w-md bg-surface-container-lowest rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.04)] border border-surface-variant overflow-hidden flex flex-col">
+            <!-- Gateway Header -->
+            <div class="nagad-gradient w-full h-32 flex flex-col items-center justify-center p-6 text-on-surface relative">
+                <img src="public/assets/nagad Logo.png" alt="Nagad Logo" class="h-12 w-auto object-contain mb-2 z-10" style="mix-blend-mode: multiply;">
+                <p class="font-label-bold text-label-bold z-10 text-on-surface-variant">Secure Payment Gateway</p>
+            </div>
+            <!-- Payment Details -->
+            <div class="bg-surface-container-low p-4 flex justify-between items-center border-b border-surface-variant">
+                <div class="flex flex-col">
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">Merchant</span>
+                    <span class="font-title-md text-title-md text-on-surface">Shonge Achi Payments</span>
+                </div>
+                <div class="flex flex-col text-right">
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">Amount</span>
+                    <span class="font-title-md text-title-md text-on-surface font-bold">৳ 1,500.00</span>
+                </div>
+            </div>
+            <!-- Input Area -->
+            <div class="p-card-padding flex flex-col gap-6">
+                <div class="text-center mb-2">
+                    <h2 class="font-title-md text-title-md text-on-surface">Enter your Nagad Account Number</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-1">Please enter your 11-digit mobile number</p>
+                </div>
+                <form id="nagad-form">
+                    <div class="relative">
+                        <label class="block font-label-bold text-label-bold text-on-surface mb-2" for="account_number">Account Number</label>
+                        <div class="relative flex items-center">
+                            <span class="absolute left-4 material-symbols-outlined text-outline">phone_iphone</span>
+                            <input class="w-full pl-12 pr-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:ring-2 focus:ring-[#ed1c24] focus:border-[#ed1c24] transition-all" id="account_number" maxlength="11" placeholder="e.g 01XXXXXXXXX" type="tel">
+                        </div>
+                    </div>
+                    <!-- Terms and Actions -->
+                    <div class="flex flex-col gap-4 mt-6">
+                        <p class="font-label-sm text-label-sm text-center text-on-surface-variant">
+                            By proceeding, you agree to the <a class="nagad-text hover:underline font-bold" href="#">Terms and Conditions</a> of Nagad.
+                        </p>
+                        <button id="nagad-submit" class="w-full nagad-bg text-white font-label-bold text-label-bold py-4 rounded-full shadow-md hover:bg-[#c9181e] active:scale-95 transition-all duration-200 flex justify-center items-center gap-2" type="submit">
+                            Proceed
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                        <button onclick="window.location.href='index.html'" class="w-full bg-transparent text-outline font-label-bold text-label-bold py-3 rounded-full border border-outline-variant hover:bg-surface-container-high transition-colors" type="button">
+                            Cancel Payment
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <!-- Sandbox Warning -->
+            <div class="bg-error-container text-on-error-container p-3 text-center font-label-sm text-label-sm flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-sm">warning</span>
+                Sandbox Environment - No real funds will be deducted.
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-6 mt-auto bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center px-container-padding max-w-7xl mx-auto border-t border-surface-variant">
+        <div class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left mb-4 md:mb-0">
+            © 2024 Shonge Achi. All rights reserved. Secure Sandbox Environment.
+        </div>
+        <div class="flex gap-6 font-label-sm text-label-sm">
+            <a class="text-on-surface-variant hover:underline transition-all duration-200" href="#">Terms of Service</a>
+            <a class="text-on-surface-variant hover:underline transition-all duration-200" href="#">Privacy Policy</a>
+            <a class="text-on-surface-variant hover:underline transition-all duration-200" href="#">Contact Support</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('nagad-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const accInput = document.getElementById('account_number');
+            if (!accInput.value || accInput.value.length !== 11) {
+                alert('Please enter a valid 11-digit Nagad account number.');
+                return;
+            }
+            const btn = document.getElementById('nagad-submit');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Processing...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Payment Successful';
+                btn.classList.remove('nagad-bg', 'hover:bg-[#c9181e]');
+                btn.classList.add('bg-tertiary', 'text-on-tertiary');
+
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('bg-tertiary', 'text-on-tertiary', 'opacity-80', 'cursor-not-allowed');
+                    btn.classList.add('nagad-bg', 'hover:bg-[#c9181e]');
+                    btn.disabled = false;
+                    document.getElementById('nagad-form').reset();
+                }, 3000);
+            }, 1800);
+        });
+    </script>
+</body>
+</html>
